@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="BikesAreUsUniversal.pgBikeOrder"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BikesAreUsUniversal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="67" Margin="400,10,0,0" Text="Order Bike" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" FontSize="48"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="41" Margin="85,79,0,0" Text="Brand" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="txbBrand" HorizontalAlignment="Left" Height="37" Margin="22,116,0,0" Text="none" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="24"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="48" Margin="431,79,0,0" Text="Model" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="24"/>
+        <TextBlock x:Name="txbModel" HorizontalAlignment="Left" Height="32" Margin="338,116,0,0" Text="none" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" FontSize="24"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Height="49" Margin="757,79,0,0" Text="Serial" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="txbSerial" HorizontalAlignment="Left" Height="32" Margin="735,122,0,0" Text="none" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" FontSize="24"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Height="53" Margin="93,196,0,0" Text="Gears" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="txbGears" HorizontalAlignment="Left" Height="39" Margin="98,246,0,0" Text="none" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" FontSize="24"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Height="47" Margin="443,196,0,0" Text="Type" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="txbType" HorizontalAlignment="Left" Height="41" Margin="440,246,0,0" Text="none" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" FontSize="24"/>
+        <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Height="46" Margin="757,196,0,0" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="txbPrice" HorizontalAlignment="Left" Height="35" Margin="757,246,0,0" Text="none" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" FontSize="24"/>
+        <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Height="42" Margin="37,428,0,0" Text="Customer Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtCustomer" HorizontalAlignment="Left" Height="45" Margin="10,460,0,0" Text="" VerticalAlignment="Top" Width="278" FontSize="24"/>
+        <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" Height="32" Margin="376,428,0,0" Text="Contact Number" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Height="45" Margin="365,460,0,0" Text="" VerticalAlignment="Top" Width="225" FontSize="24"/>
+        <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" Height="42" Margin="232,510,0,0" Text="Address" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="24"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="43" Margin="22,542,0,0" Text="" VerticalAlignment="Top" Width="553" FontSize="24"/>
+        <Button x:Name="btnOrder" Content="Order" HorizontalAlignment="Left" Height="61" Margin="735,444,0,0" VerticalAlignment="Top" Width="183" FontSize="24" Click="btnOrder_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Height="61" Margin="735,527,0,0" VerticalAlignment="Top" Width="183" FontSize="24" Click="btnCancelClick"/>
+        <ContentControl x:Name="ctcBikeSpecs" Content="ContentControl" HorizontalAlignment="Center" Height="227" Margin="0,283,0,0" VerticalAlignment="Top" Width="1024"/>
+
+    </Grid>
+</Page>
