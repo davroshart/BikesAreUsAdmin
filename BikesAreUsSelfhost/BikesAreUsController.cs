@@ -45,8 +45,8 @@ namespace BikesAreUsSelfhost
                         BikeList = getBrandBike(Name, 'A')
                     };
                 }
-                else
-                    return null;
+            else
+                return null;
         }
 
         private List<clsAllBike> getBrandBike(string Name, char prSearchType)
@@ -193,10 +193,32 @@ namespace BikesAreUsSelfhost
 
         public clsOrder GetOrder(int Serial)
         {
-            Dictionary<string, object> par = new Dictionary<string, object>();
+            return GetOrder(Serial, "");
+        }
+
+        public clsOrder GetOrder(string prCustomer)
+        {
+            return GetOrder(0, prCustomer);
+        }
+
+        public clsOrder GetOrder(int Serial, string Customer)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+
+            par.Add("Customer", Customer);
             par.Add("Serial", Serial);
-            DataTable lcResult = clsDbConnection.GetDataTable("SELECT * FROM BikeOrder WHERE Serial = @Serial", par);
-            if (lcResult.Rows.Count == 1)
+            DataTable lcResult = new DataTable();
+            if (Customer != "" && Serial != 0) // search using serial and customer?
+                lcResult = clsDbConnection.GetDataTable("SELECT * FROM BikeOrder WHERE Serial = @Serial AND Customer = @Customer", par);
+            else
+            {
+                if (Customer == "")// search only by serial?
+                    lcResult = clsDbConnection.GetDataTable("SELECT * FROM BikeOrder WHERE Serial = @Serial", par);
+                else
+                    lcResult = clsDbConnection.GetDataTable("SELECT * FROM BikeOrder WHERE Customer = @Customer", par);
+            }
+
+            if (lcResult.Rows.Count == 1 || (lcResult.Rows.Count > 1 && Customer != ""))// maybe checking for other orders by given customer?
             {
                 clsOrder lcOrder = dataRow2Order(lcResult.Rows[0]);
                 return lcOrder;
@@ -255,7 +277,7 @@ namespace BikesAreUsSelfhost
             return lcNewOrder;
         }
 
-        public string PutOrder(clsOrder prOrder)
+  /*      public string PutOrder(clsOrder prOrder)
         {   //update
             try
             {
@@ -282,18 +304,25 @@ namespace BikesAreUsSelfhost
             {
                 return ex.GetBaseException().Message;
             }
-        }
+        }*/
 
         public string PostOrder(clsOrder prOrder)
         {   //insert
             try
             {
                 int lcRecCount = clsDbConnection.Execute(
-                    "INSERT BikeOrder (Customer, Serial, DateOfOrder, DeliveryAddress, ContactPhone, PriceAtOrder" +
-                    "VALUES @Customer, @Serial, @DateOfOrder, @DeliveryAddress, @ContactPhone, @PriceAtOrder", 
+                    "INSERT INTO BikeOrder (Customer, Serial, DateOfOrder, DeliveryAddress, ContactPhone, PriceAtOrder) " +
+                    "VALUES (@Customer, @Serial, @DateOfOrder, @DeliveryAddress, @ContactPhone, @PriceAtOrder)", 
                     prepareOrderParameters(prOrder));
                 if (lcRecCount == 1)
-                    return "One order inserted";
+                {
+                    prOrder.Bike.SaleState = 'O';
+                    prOrder.Bike.LastModified = DateTime.Now; 
+                    clsDbConnection.Execute(
+                        "UPDATE Bike SET SaleState = @SaleState, LastModified = @LastModified " +
+                        "WHERE Brand = @Brand AND Serial = @Serial", prepareBikeParameters(prOrder.Bike));
+                    return "Your bike order has been completed!";
+                }
                 else
                     return "Unexpected order insert count: " + lcRecCount;
             }
@@ -308,7 +337,7 @@ namespace BikesAreUsSelfhost
             Dictionary<string, object> par = new Dictionary<string, object>(6);
             par.Add("Customer", prOrder.Customer);
             par.Add("Serial", prOrder.Serial);
-            par.Add("DateOfOrder", prOrder.DateOfOrder);
+            par.Add("DateOfOrder", prOrder.DateOfOrder.ToString("yyy-MM-dd H:mm:ss"));
             par.Add("DeliveryAddress", prOrder.DeliveryAddress);
             par.Add("ContactPhone", prOrder.ContactPhone);
             par.Add("PriceAtOrder", prOrder.PriceAtOrder);

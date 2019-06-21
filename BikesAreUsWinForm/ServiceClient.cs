@@ -31,13 +31,6 @@ namespace BikesAreUsWinForm
             (await lcHttpClient.GetStringAsync("http://localhost:60065/api/bikesareus/GetBrandNames/"));
         }
 
-        /*       internal async static Task<clsBrand> GetBrandAsync(string prBrandName)
-               {
-                   using (HttpClient lcHttpClient = new HttpClient())
-                       return JsonConvert.DeserializeObject<clsBrand>
-                   (await lcHttpClient.GetStringAsync("http://localhost:60065/api/bikesareus/GetBrand?Name=" + prBrandName));
-               }*/
-
         internal async static Task<clsBrand> GetBrandAllBikesAsync(string prBrandName)
         {
             char lcBikeSearch = 'A';

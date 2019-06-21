@@ -12,8 +12,6 @@ namespace BikesAreUsSelfhost
     {
         static void Main(string[] args)
         {
-            BikesAreUsController lcBikes = new BikesAreUsController();
-
             // Set up server configuration
             Uri _baseAddress = new Uri("http://localhost:60065/");
             HttpSelfHostConfiguration config = new HttpSelfHostConfiguration(_baseAddress);
@@ -28,8 +26,6 @@ namespace BikesAreUsSelfhost
             server.OpenAsync().Wait();
             Console.WriteLine("BikesAreUs Web-API Self hosted on " + _baseAddress);
             Console.WriteLine("Hit ENTER to exit...");
-
-            Console.WriteLine(lcBikes.GetBrandNames()[0]);
 
             Console.ReadLine();
             server.CloseAsync().Wait();

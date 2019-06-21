@@ -29,8 +29,9 @@
         <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" Height="42" Margin="232,510,0,0" Text="Address" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="24"/>
         <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="43" Margin="22,542,0,0" Text="" VerticalAlignment="Top" Width="553" FontSize="24"/>
         <Button x:Name="btnOrder" Content="Order" HorizontalAlignment="Left" Height="61" Margin="735,444,0,0" VerticalAlignment="Top" Width="183" FontSize="24" Click="btnOrder_Click"/>
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Height="61" Margin="735,527,0,0" VerticalAlignment="Top" Width="183" FontSize="24" Click="btnCancelClick"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Height="61" Margin="735,527,0,0" VerticalAlignment="Top" Width="183" FontSize="24" Click="btnCloseClick"/>
         <ContentControl x:Name="ctcBikeSpecs" Content="ContentControl" HorizontalAlignment="Center" Height="227" Margin="0,283,0,0" VerticalAlignment="Top" Width="1024"/>
+        <TextBlock x:Name="txbMessage" HorizontalAlignment="Left" Height="120" Margin="22,636,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="896" FontSize="36" FontWeight="Normal" Foreground="#FFFD1212"/>
 
     </Grid>
 </Page>

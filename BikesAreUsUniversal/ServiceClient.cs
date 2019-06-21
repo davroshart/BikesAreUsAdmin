@@ -43,5 +43,35 @@ namespace BikesAreUsUniversal
                 return JsonConvert.DeserializeObject<clsAllBike>
                     (await lcHttpClient.GetStringAsync($"http://localhost:60065/api/bikesareus/GetBikeData?Serial={prSerial}&prSearchType={lcBikeSearch}"));
         }
+
+        internal async static Task<clsOrder> GetOrderAsync(string prCustomer, int prSerial)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<clsOrder>
+                    (await lcHttpClient.GetStringAsync($"http://localhost:60065/api/bikesareus/GetOrder?Serial={prSerial}&Customer={prCustomer}"));
+        }
+
+        internal async static Task<clsOrder> GetOrderAsync(string prCustomer)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<clsOrder>
+                    (await lcHttpClient.GetStringAsync($"http://localhost:60065/api/bikesareus/GetOrder?Customer={prCustomer}"));
+        }
+
+        private async static Task<string> InsertOrUpdateAsync<TItem>(TItem prItem, string prUrl, string prRequest)
+        {
+            using (HttpRequestMessage lcReqMessage = new HttpRequestMessage(new HttpMethod(prRequest), prUrl))
+            using (lcReqMessage.Content = new StringContent(JsonConvert.SerializeObject(prItem), Encoding.UTF8, "application/json"))
+            using (HttpClient lcHttpClient = new HttpClient())
+            {
+                HttpResponseMessage lcRespMessage = await lcHttpClient.SendAsync(lcReqMessage);
+                return await lcRespMessage.Content.ReadAsStringAsync();
+            }
+        }
+
+        internal async static Task<string> InsertOrderAsync(clsOrder prOrder)
+        {
+            return await InsertOrUpdateAsync(prOrder, "http://localhost:60065/api/bikesareus/PostOrder", "POST");
+        }
     }
 }
