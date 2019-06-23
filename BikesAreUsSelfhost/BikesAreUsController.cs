@@ -196,9 +196,9 @@ namespace BikesAreUsSelfhost
             return GetOrder(Serial, "");
         }
 
-        public clsOrder GetOrder(string prCustomer)
+        public clsOrder GetOrder(string Customer)
         {
-            return GetOrder(0, prCustomer);
+            return GetOrder(0, Customer);
         }
 
         public clsOrder GetOrder(int Serial, string Customer)

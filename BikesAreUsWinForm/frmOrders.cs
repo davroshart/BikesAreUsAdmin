@@ -15,8 +15,8 @@ namespace BikesAreUsWinForm
       /*  private static readonly frmOrders _Instance =
             new frmOrders();*/
 
-        private static Dictionary<string, frmOrderDetails> _OrderDetailsFormList =
-            new Dictionary<string, frmOrderDetails>();
+      //  private static Dictionary<string, frmOrderDetails> _OrderDetailsFormList =
+      //      new Dictionary<string, frmOrderDetails>();
 
         private List<clsOrder> _OrderList;
 

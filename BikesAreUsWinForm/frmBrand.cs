@@ -122,13 +122,17 @@ namespace BikesAreUsWinForm
         private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure?", "Deleting Bike", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                /*needed?
+            { 
                 clsAllBike lcCheckBike = lstBikes.SelectedItem as clsAllBike;
                 lcCheckBike = await ServiceClient.GetBikeAsync(lcCheckBike.Serial);
 
                 if (lcCheckBike.SaleState != 'F')//bike has been ordered?
-                   if( MessageBox.Show("Bike has been ordered. Continue with delete?", "Deleting Bike", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))*/
+                {
+                    clsOrder lcOrder = await ServiceClient.GetOrder(lcCheckBike.Serial);
+                    if (MessageBox.Show("Bike has been ordered by " + lcOrder.Customer + ". Have you called " + lcOrder.ContactPhone + " to inform of cancelled order?", "Deleting Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                        return;
+                    MessageBox.Show(await ServiceClient.DeleteOrderAsync(lcOrder, 'C'));
+                }
                 MessageBox.Show(await ServiceClient.DeleteBikeAsync(lstBikes.SelectedItem as clsAllBike));
                 refreshFormFromDB(_Brand.Name);
             }

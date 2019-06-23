@@ -43,13 +43,15 @@ namespace BikesAreUsWinForm
 
         public override string ToString()
         {
-            string lcString = Serial.ToString() + "\t" + 
-                ModelName.PadRight(40 - ModelName.Length) + "\t" + Gears.ToString() + "\t";
+            string lcString = Serial.ToString();
+            lcString = lcString.PadRight(15 - lcString.Length) + "\t" +
+                ModelName.PadRight(55 - ModelName.Length) + "\t";
+        //        Gears.ToString().PadRight(10 - Gears.ToString().Length) + "\t";
             if (Type == 'U')
-                lcString = lcString + "Used";
+                lcString = lcString + "Used\t";
             else
-                lcString = lcString + "New";
-            lcString = lcString + "\t" + Price.ToString() + "\t";
+                lcString = lcString + "New\t"; 
+            lcString = lcString + Price.ToString().PadRight(15 - Price.ToString().Length) + "\t";
             if (SaleState == 'F')
                 lcString = lcString + "Available";
             else

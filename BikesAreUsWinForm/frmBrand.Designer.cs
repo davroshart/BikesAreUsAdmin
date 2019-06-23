@@ -32,7 +32,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -57,7 +56,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(226, 9);
+            this.lblTitle.Location = new System.Drawing.Point(26, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(86, 31);
             this.lblTitle.TabIndex = 1;
@@ -84,16 +83,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Serial";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(372, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 24);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Gears";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -108,7 +97,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(456, 131);
+            this.label7.Location = new System.Drawing.Point(435, 131);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 24);
             this.label7.TabIndex = 8;
@@ -148,7 +137,7 @@
             // 
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogo.Location = new System.Drawing.Point(248, 40);
+            this.lblLogo.Location = new System.Drawing.Point(28, 50);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(49, 20);
             this.lblLogo.TabIndex = 14;
@@ -159,7 +148,7 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(219, 69);
+            this.lblDescription.Location = new System.Drawing.Point(28, 79);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(104, 24);
             this.lblDescription.TabIndex = 15;
@@ -189,7 +178,6 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
@@ -205,7 +193,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAdd;
